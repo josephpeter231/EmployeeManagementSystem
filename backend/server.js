@@ -6,12 +6,9 @@ const { Pool } = require('pg');
 const app = express();
 const port = 5000;
 
+// Define database connection configuration
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'employeemanagementsystem',
-  password: 'root',
-  port: 5432,
+  connectionString: "postgres://default:VJloW5R1wcFi@ep-wandering-boat-a1sjfzv3.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require"
 });
 
 app.use(bodyParser.json());
@@ -84,8 +81,6 @@ app.put('/leave-application/reduction/:id', async (req, res) => {
   }
 });
   
-
-
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });
