@@ -17,7 +17,7 @@ const EmployeeList = () => {
 
     const fetchEmployees = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/employees');
+            const response = await axios.get('https://employeemanagementsystem-xojx.onrender.com/employees');
             setEmployees(response.data);
         } catch (error) {
             console.error('Error fetching employees:', error);
@@ -26,7 +26,7 @@ const EmployeeList = () => {
 
     const handleLeaveApplication = async () => {
         try {
-            await axios.put(`http://localhost:5000/leave-application/${employeeId}`, {
+            await axios.put(`https://employeemanagementsystem-xojx.onrender.com/leave-application/${employeeId}`, {
                 leave_reason: leaveReason,
                 leave_days: leaveDays
             });

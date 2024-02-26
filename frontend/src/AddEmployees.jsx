@@ -21,7 +21,7 @@ function App() {
 
     const fetchEmployees = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/employees');
+            const response = await axios.get('https://employeemanagementsystem-xojx.onrender.com/employees');
             setEmployees(response.data);
         } catch (error) {
             console.error('Error fetching employees:', error);
@@ -32,7 +32,7 @@ function App() {
 
     const addEmployee = async () => {
         try {
-            await axios.post('http://localhost:5000/employees', {
+            await axios.post('https://employeemanagementsystem-xojx.onrender.com/employees', {
                 name,
                 dept,
                 desig,

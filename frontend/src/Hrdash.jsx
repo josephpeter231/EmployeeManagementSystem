@@ -14,7 +14,7 @@ const HrDashboard = () => {
 
     const fetchLeaveApplications = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/employees');
+            const response = await axios.get('https://employeemanagementsystem-xojx.onrender.com/employees');
             setLeaveApplications(response.data);
         } catch (error) {
             console.error('Error fetching leave applications:', error);
@@ -26,7 +26,7 @@ const HrDashboard = () => {
             const salaryReduction = leaveDays * 100;
             const newsalary = salary-salaryReduction;
             // Update leave application status to 'Approved' in the backend
-            await axios.put(`http://localhost:5000/leave-application/reduction/${employeeId}`, {
+            await axios.put(`https://employeemanagementsystem-xojx.onrender.com/leave-application/reduction/${employeeId}`, {
                 leave_reason: leaveReason,
                 leave_days: 0,
                 salary :newsalary
@@ -48,7 +48,7 @@ const HrDashboard = () => {
     const handleDisapproveLeave = async (employeeId) => {
         try {
             // Update leave application status to 'Disapproved' in the backend
-            await axios.put(`http://localhost:5000/leave-application/${employeeId}`, {
+            await axios.put(`https://employeemanagementsystem-xojx.onrender.com/leave-application/${employeeId}`, {
                 leave_reason: '',
                 leave_days: 0
             });
